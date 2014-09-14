@@ -41,7 +41,7 @@ setup(
     long_description=long_description,
     author="Martin Sandström",
     author_email="martin@marteinn.se",
-    url="",
+    url="https://github.com/marteinn/genres",
     packages=packages,
     package_data={"": ["LICENSE", "reviews.txt"], "genres": ["*.txt"]},
     package_dir={"genres": "genres"},
