@@ -50,6 +50,10 @@ class GenreTestCase(unittest.TestCase):
         result = find("Hip-hop is a genre")
         assert "hip hop" in result
 
+    def test_slash_separator(self):
+        result = find("blues/Random word test")
+        assert "blues" in result
+
 
 class TestTagCase(unittest.TestCase):
     def test_genre_tag_occurence(self):
