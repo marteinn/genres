@@ -24,8 +24,8 @@ class Finder():
         try:
             entity = re.escape(entity)
             entity = entity.replace("\ ", "([^\w])?")
-            found = re.search("(\ |-|\|/|\.|,|^)%s(\ |\-|\|/|\.|,|$)" % entity,
-                text, re.I | re.M)
+            pattern = "(\ |-|\\\|/|\.|,|^)%s(\ |\-|\\\|/|\.|,|$)" % entity
+            found = re.search(pattern, text, re.I | re.M)
         except Exception, e:
             found = False
 
