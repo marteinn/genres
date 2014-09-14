@@ -8,9 +8,9 @@ Genres is based on a list of genres and tags (database), that are compared again
 
 The api is simple.
 
-    import genres
-    r = genres.find("Pink Floyd is a rock band)
-    r
+    >>> import genres
+    >>> r = genres.find("Pink Floyd is a rock band)
+    >>> r
     ["Rock]
 
 You can also supply your own database.
