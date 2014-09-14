@@ -35,7 +35,10 @@ Sakara
 Sega
 Seggae
 Semba
-Soukous aka Congo, Lingala or African rumba
+Soukous
+Congo
+Lingala
+African rumba
 Taarab
 Zouglou Cote D'Ivoire
 #Comment
@@ -116,6 +119,11 @@ Texas blues
 West Coast blues
 -Muddy Waters
 -Robert Johnson
+-Bessie Smith
+-B.B King
+-John Lee Hooker
+-Junior Wells
+-Earl King
 
 Caribbean and Latin American
 Bachata
@@ -800,11 +808,13 @@ Surf rock
 Visual kei
 Nagoya kei
 -Psychedelic Underground
+-Guitar rock
+-Singer/Songwriter
 -u2
 -Suede
 -The Smiths
 -Blur
--Guitar rock
+-Rolling Stones
 
 Ska
 2 tone
@@ -817,6 +827,12 @@ Polish reggae
 Reggae fusion
 Rocksteady
 Ragga jungle
+-Bluebeat
+-Caribbean Traditions
+-Contemporary Reggae
+-Dub Poetry
+-Nyahbinghi
+-Bob Marley
 
 Classical
 Ballet
@@ -832,12 +848,14 @@ Orchestral
 Show/Musical
 Symphony
 Vocal Music
+-Renaissance
 -Beethoven
 -Mozart
 -Bach
 -Philip Glass
 -Stockhausen
 -Gould
+-Steve Reich
 
 #Other
 #Worldbeat

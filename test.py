@@ -3,7 +3,6 @@
 
 """Tests"""
 
-import re
 import os
 import unittest
 from genres import find
@@ -50,6 +49,10 @@ class GenreTestCase(unittest.TestCase):
     def test_between_words(self):
         result = find("Hip-hop is a genre")
         assert "hip hop" in result
+
+    def test_slash_separator(self):
+        result = find("blues/Random word test")
+        assert "blues" in result
 
 
 class TestTagCase(unittest.TestCase):
@@ -102,7 +105,7 @@ class TestArticleContentCase(unittest.TestCase):
             found = all((w in result for w in review[0]))
             if not found:
                 raise AssertionError("%s Genres %s not found in %s",
-                    review[1][:20], review[0], result)
+                                     review[1][:20], review[0], result)
 
 if __name__ == "__main__":
     unittest.main()

@@ -19,12 +19,13 @@ class Finder():
         self.db = db
         self.unique_category = unique_category
 
-    def contains_entity(self, entity, text):
+    @staticmethod
+    def contains_entity(entity, text):
         try:
             entity = re.escape(entity)
             entity = entity.replace("\ ", "([^\w])?")
-            found = re.search("(\ |-|\|/|\.|,|^)%s(\ |\-|\|/|\.|,|$)" % entity,
-                text, re.I | re.M)
+            pattern = "(\ |-|\\\|/|\.|,|^)%s(\ |\-|\\\|/|\.|,|$)" % entity
+            found = re.search(pattern, text, re.I | re.M)
         except Exception, e:
             found = False
 
