@@ -9,7 +9,7 @@ Genres is based on a list of genres and tags (database), that are compared again
 The api is simple.
 
     import genres
-    r = genres.find("Pink Floyd is a great rock band)
+    r = genres.find("Pink Floyd is a rock band)
     r
     ["Rock]
 
@@ -51,4 +51,4 @@ Want to contribute? Awesome. Just send a pull request.
 
 ## License
 
-Android-AppLog is released under the [MIT License](http://www.opensource.org/licenses/MIT).
+Genres is released under the [MIT License](http://www.opensource.org/licenses/MIT).
