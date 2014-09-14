@@ -11,14 +11,20 @@ The api is simple.
     >>> import genres
     >>> r = genres.find("Pink Floyd is a rock band)
     >>> r
-    ["Rock]
+    ['Rock']
+    
+It detects multiple genres, as long as they are related to the same category
 
-You can also supply your own database.
+    >>> import genres
+    >>> genres.find("Acid jazz, an electronic masterpiece.")
+    ['acid jazz', 'jazz']
+   	
+In this example the two occurences of electronic and techno triumps rock.
+   	
+    >>> import genres
+    >>> genres.find("Electronic music with a techno vibe. Different from rock")
+    ['techno', 'electronic']
 
-    import genres
-
-    db_obj = genres.db.Db("./example.txt")
-    finder_obj = genres.finder.Finder(db_obj)
 
 
 ## Database
@@ -37,6 +43,12 @@ The database is a simple list of words, separated by newline and structured like
 
 Genres are distributed with a database that can be found under `genres/data.txt` and the genre structure is based on [Allmusic genre categorisation](http://en.wikipedia.org/wiki/List_of_popular_music_genres).
 
+It is possible to supply your own database:
+
+    import genres
+
+    db_obj = genres.db.Db("./example.txt")
+    finder_obj = genres.finder.Finder(db_obj)
 
 ## Installation
 Genres can easily be installed through pip.
