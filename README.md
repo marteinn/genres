@@ -11,7 +11,7 @@ The api is simple.
     >>> import genres
     >>> r = genres.find("Pink Floyd is a rock band)
     >>> r
-    ['Rock']
+    ['rock']
     
 It detects multiple genres, as long as they are related to the same category
 
