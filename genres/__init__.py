@@ -7,9 +7,9 @@ genres
 Genres is a library that analyzes text with musical context and guesses genres.
 
     >>> import genres
-    >>> r = genres.find("Pink Floyd is a great rock band)
+    >>> r = genres.find("Pink Floyd is a great rock band")
     >>> r
-    >>> ["Rock]
+    >>> ["Rock"]
 
 :copyright: (c) 2014 by Martin Sandström
 :license: MIT, see LICENSE for more details.

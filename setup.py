@@ -31,7 +31,7 @@ Genres is a library that analyzes text with musical context and guesses genres.
 
 %s
 
-""" % (readme)
+""" % readme
 
 
 setup(

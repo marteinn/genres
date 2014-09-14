@@ -3,7 +3,6 @@
 
 """Tests"""
 
-import re
 import os
 import unittest
 from genres import find
@@ -102,7 +101,7 @@ class TestArticleContentCase(unittest.TestCase):
             found = all((w in result for w in review[0]))
             if not found:
                 raise AssertionError("%s Genres %s not found in %s",
-                    review[1][:20], review[0], result)
+                                     review[1][:20], review[0], result)
 
 if __name__ == "__main__":
     unittest.main()
