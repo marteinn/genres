@@ -19,19 +19,11 @@ class Finder():
         self.db = db
         self.unique_category = unique_category
 
-    @staticmethod
-    def contains_entity(entity, text):
-        try:
-            entity = re.escape(entity)
-            entity = entity.replace("\ ", "([^\w])?")
-            pattern = "(\ |-|\\\|/|\.|,|^)%s(\ |\-|\\\|/|\.|,|$)" % entity
-            found = re.search(pattern, text, re.I | re.M)
-        except Exception, e:
-            found = False
-
-        return found
-
     def find(self, text):
+        """
+        Return a list of genres found in text.
+        """
+
         genres = []
         text = text.lower()
 
@@ -39,20 +31,26 @@ class Finder():
         counter = Counter()
 
         for genre in self.db.genres:
-            if self.contains_entity(genre, text):
-                counter[genre] += 1
+            found = self.contains_entity(genre, text)
+            if found:
+                counter[genre] += found
+
                 category = self.db.reference[genre]
-                category_counter[category] += 1
+                points = self.db.points[genre]
+                points *= found
+                category_counter[category] += points
 
         for tag in self.db.tags:
-            if self.contains_entity(tag, text):
+            found = self.contains_entity(tag, text)
+            if found:
                 category = self.db.reference[tag]
 
-                # Only increase main category count once when tag is found.
                 if not counter[category]:
-                    counter[category] += 1
+                    counter[category] += found
 
-                category_counter[category] += 1
+                points = self.db.points[category]
+                points *= found
+                category_counter[category] += points
 
         if len(category_counter) == 0:
             return genres
@@ -73,3 +71,20 @@ class Finder():
                 genres.append(genre)
 
         return genres
+
+    @staticmethod
+    def contains_entity(entity, text):
+        """
+        Attempt to try entity, return false if not found. Otherwise the
+        amount of time entitu is occuring.
+        """
+
+        try:
+            entity = re.escape(entity)
+            entity = entity.replace("\ ", "([^\w])?")
+            pattern = "(\ |-|\\\|/|\.|,|^)%s(\ |\-|\\\|/|\.|,|$)" % entity
+            found = len(re.findall(pattern, text, re.I | re.M))
+        except Exception, e:
+            found = False
+
+        return found
