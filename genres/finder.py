@@ -88,5 +88,3 @@ class Finder():
             found = False
 
         return found
-
-

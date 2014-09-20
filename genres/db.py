@@ -50,6 +50,9 @@ class Db:
             entries = category.strip().split("\n")
             entry_category, entry_points = self._parse_entry(entries[0].lower())
 
+            if entry_category.startswith("#"):
+                continue
+
             for entry in entries:
                 entry = entry.lower()
                 if not entry:
@@ -81,7 +84,8 @@ class Db:
         self.tags = tag_index
         self.points = reference_points
 
-    def _parse_entry(self, entry, limit=10):
+    @staticmethod
+    def _parse_entry(entry, limit=10):
         """
         Finds both label and if provided, the points for ranking.
         """
@@ -91,8 +95,7 @@ class Db:
         points = limit
 
         if len(entry) > 1:
-            proc = float(entry[1])
+            proc = float(entry[1].strip())
             points = limit * proc
 
-        return label, points
-
+        return label, int(points)
