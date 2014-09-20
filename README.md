@@ -2,7 +2,7 @@
 Genres is a python library (2.7) that guesses the genres for text with musical context.
 
 ## How it works
-Genres is based on a list of genres and tags (database), those are then compared against supplied text using regexp and a points for ranking are calculated. Found genres are compared agains its main category to avoid mismatches.
+Genres is based on a list of genres and tags (database), those are then compared against supplied text using regexp and points for ranking are calculated. Found genres are compared agains its main category to avoid mismatches.
 
 ## Usage
 
