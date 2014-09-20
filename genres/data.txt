@@ -452,6 +452,7 @@ Trap
 Funky
 Grime
 Speed garage
+-Synth
 -Aphex Twin
 -Autechre
 -Peter Hook
