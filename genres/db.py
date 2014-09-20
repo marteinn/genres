@@ -14,6 +14,7 @@ class Db:
     reference = None
     genres = None
     tags = None
+    points = None
 
     def __init__(self, data_path=None):
         if not data_path:
@@ -24,6 +25,9 @@ class Db:
         self.parse(data)
 
     def load(self, data_path):
+        """
+        Extract data from provided file and return it as a string.
+        """
         with open(data_path, "r") as data_file:
             raw_data = data_file.read()
 
@@ -31,14 +35,21 @@ class Db:
         return raw_data
 
     def parse(self, data):
+        """
+        Split and iterate through the datafile to extract genres, tags
+        and points.
+        """
+
         categories = data.split("\n\n")
         reference = {}
+        reference_points = {}
         genre_index = []
         tag_index = []
 
         for category in categories:
             entries = category.strip().split("\n")
-            entry_category = entries[0].lower()
+            entry_category, entry_points = self._parse_entry(entries[0].lower())
+
             for entry in entries:
                 entry = entry.lower()
                 if not entry:
@@ -50,19 +61,38 @@ class Db:
 
                 # Handle genre
                 if not entry.startswith("-"):
-                    genre = entry
+                    genre, points = self._parse_entry(entry)
 
                     reference[genre] = entry_category
+                    reference_points[genre] = points
                     genre_index.append(genre)
 
                 # Handle tag
                 else:
                     tag = entry[1:]
-                    tag = tag.strip()
+                    tag, points = self._parse_entry(tag)
 
                     reference[tag] = entry_category
+                    reference_points[tag] = points
                     tag_index.append(tag)
 
         self.reference = reference
         self.genres = genre_index
         self.tags = tag_index
+        self.points = reference_points
+
+    def _parse_entry(self, entry, limit=10):
+        """
+        Finds both label and if provided, the points for ranking.
+        """
+
+        entry = entry.split(",")
+        label = entry[0]
+        points = limit
+
+        if len(entry) > 1:
+            proc = float(entry[1])
+            points = limit * proc
+
+        return label, points
+

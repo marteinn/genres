@@ -54,17 +54,30 @@ class GenreTestCase(unittest.TestCase):
         result = find("blues/Random word test")
         assert "blues" in result
 
-
 class TestTagCase(unittest.TestCase):
     def test_genre_tag_occurence(self):
         result = find("Ska jazz. Ska jazz. The best jazz player is Miles Davis. \
         Miles Davis. Miles Davis")
-        assert "ska jazz" == result[0]
+        assert "jazz" == result[0]
 
     def test_tag_vs_genre_check(self):
         result = find("Miles Davis. Miles Davis. Miles Davis. Techno. Techno.")
         assert "jazz" in result
         assert len(result) == 1
+
+
+class RankCase(unittest.TestCase):
+    def test_ranking(self):
+        result = find("Benga. House")
+        assert "benga" in result
+
+    def test_tag_vs_genre(self):
+        result = find("Miles Davis. Jit")
+        assert "jazz" in result
+
+    def test_genre_ranking(self):
+        result = find("In this house, we play jazz")
+        assert "jazz" in result
 
 
 class TestArticleContentCase(unittest.TestCase):
