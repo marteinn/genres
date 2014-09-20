@@ -16,8 +16,8 @@ Genres is a library that analyzes text with musical context and guesses genres.
 """
 
 __title__ = "genres"
-__version__ = "1.0.1"
-__build__ = 101
+__version__ = "1.1"
+__build__ = 11
 __author__ = "Martin Sandström"
 __license__ = "MIT"
 __copyright__ = "Copyright 2014 Martin Sandström"
