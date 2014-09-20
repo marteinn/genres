@@ -43,7 +43,7 @@ Taarab
 Zouglou Cote D'Ivoire
 #Comment
 
-Asian
+Asian,0.7
 Fann at-Tanbura
 Fijiri
 Khaliji
@@ -179,10 +179,11 @@ Ranchera
 Tejano
 Norteña
 
-Comedy
+Comedy,0.7
 Comedy music
 Comedy rock
 Parody music
+-Weird Al Yankovic
 
 Country
 Alternative country
@@ -363,7 +364,7 @@ Hi-NRG
 Eurobeat
 Hard NRG
 New Beat
-House
+House,0.7
 Acid house
 Chicago house
 Deep house
@@ -676,7 +677,7 @@ Boogie
 Go-go
 P-Funk
 New jack swing
-Soul
+Soul,0.8
 Blue-eyed soul
 Hip hop soul
 Northern soul
