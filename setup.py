@@ -45,7 +45,7 @@ setup(
     package_dir={"genres": "genres"},
     include_package_data=True,
     install_requires=requires,
-    license="Apache 2.0",
+    license="MIT",
     zip_safe=False,
     classifiers=(
         "Development Status :: 4 - Beta",

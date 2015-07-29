@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/marteinn/genres.svg?branch=master)](https://travis-ci.org/marteinn/genres)
+
 # Genres
 Genres is a python library (2.7) that guesses the genres for text with musical context.
 
