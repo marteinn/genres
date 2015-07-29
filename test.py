@@ -54,6 +54,7 @@ class GenreTestCase(unittest.TestCase):
         result = find("blues/Random word test")
         assert "blues" in result
 
+
 class TestTagCase(unittest.TestCase):
     def test_genre_tag_occurence(self):
         result = find("Ska jazz. Ska jazz. The best jazz player is Miles Davis. \
@@ -85,7 +86,7 @@ class TestArticleContentCase(unittest.TestCase):
 
     def setUp(self):
         data_path = "%s/reviews.txt" % os.path.dirname(
-                os.path.abspath(__file__))
+            os.path.abspath(__file__))
 
         with open(data_path, "r") as data_file:
             raw_data = data_file.read()
