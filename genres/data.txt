@@ -618,7 +618,27 @@ Trad jazz
 Vocal jazz
 West Coast Gypsy jazz
 West Coast jazz
+-Art Tatum
+-Art Blakey
+-Billie Holiday
+-Benny Goodman
+-Charles Mingus
+-Charlie Parker
+-Count Basie
+-Coleman Hawkins
+-Dizzy Gillespie
+-Dave Brubeck
+-Duke Ellington
+-John Coltrane
+-Keith Jarrett
+-Kurt Elling
+-Louis Armstrong
+-Mary Lou Williams
 -Miles Davis
+-Max Roach
+-Nat King Cole
+-Thelonious Monk
+-Wynton Marsalis
 
 Pop
 Adult contemporary
