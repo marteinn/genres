@@ -1,5 +1,6 @@
 *.pyc
 /venv*
+/dist
 .DS_Store
 .*.swp
 tags
