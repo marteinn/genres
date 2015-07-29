@@ -24,14 +24,12 @@ with open('README.md') as f:
 
 requires = []
 
-long_description = """
-Genres is a library that analyzes text with musical context and guesses genres.
-
----
-
-%s
-
-""" % readme
+# Convert markdown to rst
+try:
+    from pypandoc import convert
+    long_description = convert("README.md", "rst")
+except ImportError:
+    long_description = open("README.md").read()
 
 
 setup(
@@ -47,7 +45,7 @@ setup(
     package_dir={"genres": "genres"},
     include_package_data=True,
     install_requires=requires,
-    license="Apache 2.0",
+    license="MIT",
     zip_safe=False,
     classifiers=(
         "Development Status :: 4 - Beta",

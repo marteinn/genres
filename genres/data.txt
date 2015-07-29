@@ -82,7 +82,7 @@ Ragini
 
 Avant-Garde
 Experimental music
-Noise
+Noise,0.8
 Lo-fi
 Musique concrète
 Electroacoustic
