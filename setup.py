@@ -5,6 +5,7 @@ import os
 import sys
 
 import genres
+from pypandoc import convert
 
 try:
     from setuptools import setup
@@ -19,23 +20,17 @@ packages = [
     "genres"
 ]
 
-with open('README.md') as f:
-    readme = f.read()
-
 requires = []
 
 # Convert markdown to rst
-try:
-    from pypandoc import convert
-    long_description = convert("README.md", "rst")
-except ImportError:
-    long_description = open("README.md").read()
+long_description = convert("README.md", "rst")
 
 
 setup(
     name="genres",
     version=genres.__version__,
-    description="Guesses genre for text with musical context",
+    description="Determine musical genres for text with musical context "
+                "(such as reviews)",
     long_description=long_description,
     author="Martin Sandström",
     author_email="martin@marteinn.se",
