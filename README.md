@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/marteinn/genres.svg?branch=master)](https://travis-ci.org/marteinn/genres)
 
 # Genres
-Genres is a python library (2.7) that guesses the genres for text with musical context.
+Genres is a python library (2.7) that analyzes text with musical context (such as reviews) in order to determine musical genres
 
 ## How it works
 Genres is based on a list of genres and tags (database), those are then compared against supplied text using regexp and points for ranking are calculated. Found genres are compared agains its main category to avoid mismatches.
@@ -20,9 +20,9 @@ It detects multiple genres, as long as they are related to the same category
     >>> import genres
     >>> genres.find("Acid jazz, an electronic masterpiece.")
     ['acid jazz', 'jazz']
-   	
+    
 In this example the two occurences of electronic and techno triumps rock.
-   	
+    
     >>> import genres
     >>> genres.find("Electronic music with a techno vibe. Different from rock")
     ['techno', 'electronic']
@@ -48,16 +48,23 @@ Genres are distributed with a database that can be found under `genres/data.txt`
 
 It is possible to supply your own database:
 
-    import genres
+```python
+import genres
 
-    db_obj = genres.db.Db("./example.txt")
-    finder_obj = genres.finder.Finder(db_obj)
+db_obj = genres.db.Db("./example.txt")
+finder_obj = genres.finder.Finder(db_obj)
+```
 
 ## Installation
+
 Genres can easily be installed through pip.
 
     $ pip install genres
 
+
+## Tests
+
+This library include tests, just run `python runtests.py.`
 
 ## Contributing
 
