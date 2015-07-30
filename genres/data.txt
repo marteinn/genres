@@ -836,11 +836,12 @@ Nagoya kei
 -Psychedelic Underground
 -Guitar rock
 -Singer/Songwriter
+-Blur
 -u2
+-Radiohead
+-Rolling Stones
 -Suede
 -The Smiths
--Blur
--Rolling Stones
 
 Ska
 2 tone
@@ -859,6 +860,9 @@ Ragga jungle
 -Dub Poetry
 -Nyahbinghi
 -Bob Marley
+-Jimmy Cliff
+-The Skatalites
+-The Specials
 
 Classical
 Ballet
@@ -876,12 +880,17 @@ Symphony
 Vocal Music
 -Renaissance
 -Beethoven
--Mozart
 -Bach
+-Brahms
+-Debussy
+-Gould
+-Mozart
 -Philip Glass
 -Stockhausen
--Gould
 -Steve Reich
+-Satie
+-Vivaldi
+-Wagner
 
 #Other
 #Worldbeat
