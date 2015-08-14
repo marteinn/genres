@@ -74,7 +74,7 @@ class RankCase(unittest.TestCase):
 
     def test_tag_vs_genre(self):
         result = find("Miles Davis. Jit")
-        assert "jazz" in result
+        assert "jit" in result
 
     def test_genre_ranking(self):
         result = find("In this house, we play jazz")
@@ -117,9 +117,12 @@ class TestArticleContentCase(unittest.TestCase):
         for review in self.reviews:
             result = find(review[1])
             found = all((w in result for w in review[0]))
+
             if not found:
-                raise AssertionError("%s Genres %s not found in %s",
-                                     review[1][:20], review[0], result)
+                message = "'%s...' Genres '%s' not found in '%s'" % (
+                    review[1][:20], review[0], result)
+                raise AssertionError(message)
+
 
 if __name__ == "__main__":
     unittest.main()
