@@ -73,7 +73,7 @@ class Db:
                 # Handle tag
                 else:
                     tag = entry[1:]
-                    tag, points = self._parse_entry(tag)
+                    tag, points = self._parse_entry(tag, limit=9.5)
 
                     reference[tag] = entry_category
                     reference_points[tag] = points
