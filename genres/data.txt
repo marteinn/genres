@@ -835,7 +835,7 @@ Visual kei
 Nagoya kei
 -Psychedelic Underground
 -Guitar rock
--Singer/Songwriter
+-Singer/Songwriter,0.9
 -Blur
 -u2
 -Radiohead
