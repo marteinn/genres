@@ -84,7 +84,7 @@ class Finder():
             entity = entity.replace("\ ", "([^\w])?")
             pattern = "(\ |-|\\\|/|\.|,|^)%s(\ |\-|\\\|/|\.|,|$)" % entity
             found = len(re.findall(pattern, text, re.I | re.M))
-        except Exception, e:
+        except Exception as e:
             found = False
 
         return found
