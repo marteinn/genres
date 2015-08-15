@@ -17,8 +17,8 @@ in order to determine musical genres.
 """
 
 __title__ = "genres"
-__version__ = "1.1.3"
-__build__ = 113
+__version__ = "1.2.0"
+__build__ = 120
 __author__ = "Martin Sandström"
 __license__ = "MIT"
 __copyright__ = "Copyright 2014-2015 Martin Sandström"
