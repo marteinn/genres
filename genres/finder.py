@@ -38,6 +38,11 @@ class Finder():
                 category = self.db.reference[genre]
                 points = self.db.points[genre]
                 points *= found
+
+                # Add bonus points if additional terms points to category
+                if category_counter[category] > 0:
+                    points += 1
+
                 category_counter[category] += points
 
         for tag in self.db.tags:
@@ -48,7 +53,7 @@ class Finder():
                 if not counter[category]:
                     counter[category] += found
 
-                points = self.db.points[category]
+                points = self.db.points[tag]
                 points *= found
                 category_counter[category] += points
 
@@ -84,7 +89,7 @@ class Finder():
             entity = entity.replace("\ ", "([^\w])?")
             pattern = "(\ |-|\\\|/|\.|,|^)%s(\ |\-|\\\|/|\.|,|$)" % entity
             found = len(re.findall(pattern, text, re.I | re.M))
-        except Exception, e:
+        except Exception as e:
             found = False
 
         return found

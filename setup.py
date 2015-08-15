@@ -5,6 +5,7 @@ import os
 import sys
 
 import genres
+from pip.req import parse_requirements
 from pypandoc import convert
 
 try:
@@ -15,6 +16,10 @@ except ImportError:
 if sys.argv[-1] == "publish":
     os.system("python setup.py sdist upload")
     sys.exit()
+
+# Handle requirements
+requires = parse_requirements("requirements/tests.txt")
+tests_require = [str(ir.req) for ir in requires]
 
 packages = [
     "genres"
@@ -40,15 +45,19 @@ setup(
     package_dir={"genres": "genres"},
     include_package_data=True,
     install_requires=requires,
+    tests_require=tests_require,
     license="MIT",
     zip_safe=False,
     classifiers=(
-        "Development Status :: 4 - Beta",
+        "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
         "Natural Language :: English",
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 2.7"
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3.2",
+        "Programming Language :: Python :: 3.3",
+        "Programming Language :: Python :: 3.4"
     ),
     extras_require={
     },
