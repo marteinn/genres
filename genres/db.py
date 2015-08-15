@@ -24,7 +24,8 @@ class Db:
         data = self.load(data_path)
         self.parse(data)
 
-    def load(self, data_path):
+    @staticmethod
+    def load(data_path):
         """
         Extract data from provided file and return it as a string.
         """
