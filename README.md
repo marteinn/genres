@@ -1,7 +1,8 @@
 [![Build Status](https://travis-ci.org/marteinn/genres.svg?branch=master)](https://travis-ci.org/marteinn/genres)
+[![PyPI version](https://badge.fury.io/py/genres.svg)](http://badge.fury.io/py/genres)
 
 # Genres
-Genres is a python library (2.7) that analyzes text with musical context (such as reviews) in order to determine musical genres
+Genres is a python library that analyzes text with musical context (such as reviews) in order to determine musical genres
 
 ## How it works
 Genres is based on a list of genres and tags (database), those are then compared against supplied text using regexp and points for ranking are calculated. Found genres are compared agains its main category to avoid mismatches.
