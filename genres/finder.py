@@ -57,7 +57,7 @@ class Finder():
                 points *= found
                 category_counter[category] += points
 
-        if len(category_counter) == 0:
+        if not category_counter:
             return genres
 
         main_category = category_counter.most_common(1)[0][0]

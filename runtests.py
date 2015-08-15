@@ -18,7 +18,7 @@ class GenreTestCase(unittest.TestCase):
         result = find("This is Dance Hall. Sounds like a mix of Merengue")
         assert "dance hall" in result
 
-    def multiple_and_invalid(self):
+    def test_multiple_and_invalid(self):
         result = find("KingstonDance Hall and Reggae")
         assert "dance hall" not in result
 
@@ -101,7 +101,7 @@ class TestArticleContentMeta(type):
         for review in reviews_data:
             review = review.strip()
 
-            if len(review) == 0:
+            if not review:
                 continue
 
             if review[:1].startswith("#"):
