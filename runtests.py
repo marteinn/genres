@@ -5,6 +5,7 @@
 
 import os
 import unittest
+import six
 from genres import find
 
 
@@ -81,10 +82,12 @@ class RankCase(unittest.TestCase):
         assert "jazz" in result
 
 
-class TestArticleContentCase(unittest.TestCase):
-    reviews = []
+class TestArticleContentMeta(type):
+    def __init__(self, name, bases, attrs):
+        super(TestArticleContentMeta, self).__init__(name, bases, attrs)
 
-    def setUp(self):
+    def __new__(mcs, name, bases, dict):
+        reviews = []
         data_path = "%s/reviews.txt" % os.path.dirname(
             os.path.abspath(__file__))
 
@@ -94,8 +97,8 @@ class TestArticleContentCase(unittest.TestCase):
         data_file.close()
         raw_data = raw_data.strip()
 
-        reviews = raw_data.split("\n")
-        for review in reviews:
+        reviews_data = raw_data.split("\n")
+        for review in reviews_data:
             review = review.strip()
 
             if len(review) == 0:
@@ -107,21 +110,26 @@ class TestArticleContentCase(unittest.TestCase):
             review_struct = review.split(";")
             category = review_struct[0].split(",")
             content = "".join(review_struct[1:])
+            reviews.append([category, content])
 
-            self.reviews.append([category, content])
+        def gen_test(review):
+            def test(self):
+                result = find(review[1])
+                found = all((w in result for w in review[0]))
+                self.assertTrue(found)
 
-    def tearDown(self):
-        pass
+            return test
 
-    def test_reviews(self):
-        for review in self.reviews:
-            result = find(review[1])
-            found = all((w in result for w in review[0]))
+        for index, review in enumerate(reviews):
+            test_name = "test_review_%s" % index
+            dict[test_name] = gen_test(review)
 
-            if not found:
-                message = "'%s...' Genres '%s' not found in '%s'" % (
-                    review[1][:20], review[0], result)
-                raise AssertionError(message)
+        return type.__new__(mcs, name, bases, dict)
+
+
+class TestArticleContentCase(six.with_metaclass(TestArticleContentMeta,
+                                                unittest.TestCase)):
+    pass
 
 
 if __name__ == "__main__":
