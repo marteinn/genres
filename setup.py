@@ -18,8 +18,6 @@ if sys.argv[-1] == "publish":
     os.system("python setup.py sdist upload")
     sys.exit()
 
-packages = find_packages()
-
 # Handle requirements
 requires = parse_requirements("requirements/tests.txt",
                               session=pip.download.PipSession())
@@ -49,7 +47,7 @@ setup(
     author_email="martin@marteinn.se",
     url="https://github.com/marteinn/genres",
     packages=packages,
-    package_data=packages,
+    package_data={"": ["LICENSE", "reviews.txt"], "genres": ["*.txt"]},
     package_dir={"genres": "genres"},
     include_package_data=True,
     install_requires=requires,
