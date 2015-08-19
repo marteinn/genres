@@ -6,6 +6,7 @@ import sys
 import pip
 
 import genres
+from setuptools import find_packages
 from pip.req import parse_requirements
 
 try:
@@ -16,6 +17,8 @@ except ImportError:
 if sys.argv[-1] == "publish":
     os.system("python setup.py sdist upload")
     sys.exit()
+
+packages = find_packages()
 
 # Handle requirements
 requires = parse_requirements("requirements/tests.txt",
@@ -46,7 +49,7 @@ setup(
     author_email="martin@marteinn.se",
     url="https://github.com/marteinn/genres",
     packages=packages,
-    package_data={"": ["LICENSE", "reviews.txt"], "genres": ["*.txt"]},
+    package_data=packages,
     package_dir={"genres": "genres"},
     include_package_data=True,
     install_requires=requires,
