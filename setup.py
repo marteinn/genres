@@ -3,10 +3,10 @@
 
 import os
 import sys
+import pip
 
 import genres
 from pip.req import parse_requirements
-from pypandoc import convert
 
 try:
     from setuptools import setup
@@ -18,7 +18,8 @@ if sys.argv[-1] == "publish":
     sys.exit()
 
 # Handle requirements
-requires = parse_requirements("requirements/tests.txt")
+requires = parse_requirements("requirements/tests.txt",
+                              session=pip.download.PipSession())
 tests_require = [str(ir.req) for ir in requires]
 
 packages = [
@@ -28,7 +29,11 @@ packages = [
 requires = []
 
 # Convert markdown to rst
-long_description = convert("README.md", "rst")
+try:
+    from pypandoc import convert
+    long_description = convert("README.md", "rst")
+except:
+    long_description = ""
 
 
 setup(
