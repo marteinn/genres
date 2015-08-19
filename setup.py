@@ -6,6 +6,7 @@ import sys
 import pip
 
 import genres
+from setuptools import find_packages
 from pip.req import parse_requirements
 
 try:

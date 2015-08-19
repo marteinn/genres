@@ -1,1 +1,1 @@
-include README.md LICENSE test.py requirements.txt genres/data.txt
+include README.md LICENSE requirements/tests.txt genres/data.txt
