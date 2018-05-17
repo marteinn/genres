@@ -3,11 +3,9 @@
 
 import os
 import sys
-import pip
 
 import genres
 from setuptools import find_packages
-from pip.req import parse_requirements
 
 try:
     from setuptools import setup
@@ -19,9 +17,10 @@ if sys.argv[-1] == "publish":
     sys.exit()
 
 # Handle requirements
-requires = parse_requirements("requirements/tests.txt",
-                              session=pip.download.PipSession())
-tests_require = [str(ir.req) for ir in requires]
+tests_require = [
+    'pypandoc==0.9.9',
+    'six==1.9.0',
+]
 
 packages = [
     "genres"
@@ -54,7 +53,7 @@ setup(
     tests_require=tests_require,
     license="MIT",
     zip_safe=False,
-    classifiers=(
+    classifiers=[
         "Development Status :: 5 - Production/Stable",
         "Intended Audience :: Developers",
         "Natural Language :: English",
@@ -64,7 +63,7 @@ setup(
         "Programming Language :: Python :: 3.2",
         "Programming Language :: Python :: 3.3",
         "Programming Language :: Python :: 3.4"
-    ),
+    ],
     extras_require={
     },
 )
